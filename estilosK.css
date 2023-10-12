@@ -1,0 +1,156 @@
+body{
+    background: url(./imagnes/principal.jpg) no-repeat center center fixed;
+    background-size: cover;
+}
+
+.logoo { 
+    display: block; 
+    width: 200px;
+     margin: 0 auto;
+     filter: drop-shadow(0 2px 5px #fff);
+    }
+
+/*Variables light-mode*/
+
+body.light-mode{
+ --colorPulse1 : rgba( 0, 0, 0, 0.85); 
+ --colorPulse2 : rgba( 0, 0, 0, 0); 
+ --colorcard : rgba( 255, 255, 255, 0.2);
+ --colorTextocard : #000;
+ --sombraTexto: 2px 2px 5px rgb(60, 119, 153);
+ --colorPanel: rgba(255, 255, 255, 0.4);
+ --sombraPanel: rgba(0, 0, 0, 1);
+ --hovercard: rgba(255, 255, 255, 0.5);
+}
+
+body.dark-mode{
+    background-image: url(./imagnes/kinomoto-sakura-tomoyo-mango-cardcaptor-sakura.jpg);
+ --colorPulse1 : rgba( 255, 255, 255, 0.85); 
+ --colorPulse2 : rgba( 255, 255, 255, 0); 
+ --colorcard : rgba( 255, 255, 255, 0.2);
+ --colorTextocard : #fff;
+ --sombraTexto: 1px 2px 5px #000000;
+ --colorPanel: rgba(0, 0, 0, 0.4);
+ --sombraPanel: rgba(255, 255, 255, 0.5);
+ --hovercard: rgba(255, 255, 255, 0.1);
+}
+/*Para darle forma a la carta*/
+.card{
+    margin: 8px auto;
+    width: 300px;
+    text-align: center;
+    box-shadow: 0 0 20px #000;
+    border-radius: 20px;
+    padding: 20px 0;
+    background-color: var(--colorcard);
+}
+/*para ajustar la imagen a la carta*/
+.card img{
+    width: 250px;
+    margin: 8px auto;
+    transition: 0.2s ease;
+    filter: drop-shadow(0 4px 6px #fff);
+}
+
+.card:hover img{
+    transform: rotate( 10deg);
+    transition: 0.3s ease;
+}
+/*Para darle forma al texto dentro de la carta*/
+.card label{
+    display: block; 
+    height: 20px;
+    font-weight: bold;
+    color: var(--colorTextocard);
+    text-shadow: var(--sombraTexto);
+    font-size: 20px;
+}
+
+
+/*Para darle estilo a la imagen spinel*/
+
+.contenedor-aro{
+    position: fixed;
+    bottom: 15px;
+    left: 15px;
+}
+
+.contenedor-aro .spinel{
+    cursor: pointer;
+    border-radius: 50%;
+    width: 90px;
+   filter: sepia(50%);
+   transition: .3s ease;
+   animation: pulse 1.5s infinite;
+}
+
+.contenedor-aro .spinel:hover{
+    filter: sepia(0);
+    transition: .3s ease;
+}
+/* para darle esilos a los aros de magia*/
+.contenedor-aro .escondidos{
+position: absolute;
+background-color: var(--colorPanel);
+width: 90px;
+height: 180px;
+border-radius: 15px;
+transform: translateY(-100%);
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: space-evenly;
+display: none;
+}
+/*clase "active"  que se usara para JS*/
+.contenedor-aro .escondidos.active{
+display: flex;
+}
+
+.contenedor-aro .escondidos .oscuro{
+width: 70px;
+height: 70px;
+border-radius: 50%;
+cursor: pointer;
+border: solid 2px #fff;
+background-color: #201e1e;
+transition: .3s all;
+}
+
+.contenedor-aro .escondidos .claro{
+width: 70px;
+height: 70px;
+border-radius: 50%;
+cursor: pointer;
+border: solid 2px #fff;
+background-color: rgb(236, 171, 182);
+transition: .3s all;
+}
+
+/*Para la animacion de los aros magicos*/
+
+@keyframes pulse{
+    0%{
+box-shadow:  0 0 0 0 var(--colorPulse1);
+    }
+50%{
+    box-shadow:  0 0 0 25px var(--colorPulse2);
+}
+100%{
+    box-shadow:  0 0 0 0 var(--colorPulse2);
+}
+}
+
+@media (min-width: 1000px ){
+    .contenedor-img{
+        display: flex;
+    }
+    .card{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+}
+
+
+
